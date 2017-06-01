@@ -10,8 +10,8 @@ import UIKit
 
 class HistoryTableViewController: UITableViewController {
     var entries : [LocationLookup] = []
-
-   
+    var historyDelegate:HistoryTableViewControllerDelegate?
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,7 +22,24 @@ class HistoryTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath:
+        
+        IndexPath) {
+        
+        // use the historyDelegate to report back entry selected to the calculator scene
+        
+        if let del = self.historyDelegate {
+            
+            let ll = entries[indexPath.row]
+            
+            del.selectEntry(entry: ll)
+            
+        }
+        // this pops to the calculator
+        
+        _ = self.navigationController?.popViewController(animated: true)
+        
+    }
 
     /*
     // MARK: - Navigation
@@ -34,4 +51,8 @@ class HistoryTableViewController: UITableViewController {
     }
     */
 
+}
+protocol HistoryTableViewControllerDelegate {
+    
+    func selectEntry(entry: LocationLookup)
 }

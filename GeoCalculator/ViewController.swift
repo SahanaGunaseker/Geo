@@ -81,15 +81,14 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
         return cell
         
     }
+    
 
     func doCalculatations()
     {
         guard let p1lt = Double(self.p1Lat.text!), let p1ln = Double(self.p1Lng.text!), let p2lt = Double(self.p2Lat.text!), let p2ln = Double(p2Lng.text!) else {
             return
         }
-        entries.append(LocationLookup(origLat: p1lt, origLng: p1ln, destLat: p2lt,
-                                      
-                                     destLng: p2ln, timestamp: Date()))
+       
                let p1 = CLLocation(latitude: p1lt, longitude: p1ln)
         let p2 = CLLocation(latitude: p2lt, longitude: p2ln)
         let distance = p1.distance(from: p2)
@@ -106,6 +105,9 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
         } else {
             self.bearingLabel.text = "Bearing: \((bearing * 1777.7777777778).rounded() / 100.0) mils."
         }
+        self.entries.append(LocationLookup(origLat: p1lt, origLng: p1ln, destLat: p2lt,
+                                      
+                                      destLng: p2ln, timestamp: Date()))
     }
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
@@ -140,14 +142,11 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
         }
         if segue.identifier == "historySegue"{
             if let hist = segue.destination.childViewControllers[0] as? HistoryTableViewController {
-            //hist.entries = self.entries
-            //print(self.entries)
-            
-            }
+           hist.historyDelegate = (self.entries as! HistoryTableViewControllerDelegate)
+        }
     }
 }
 }
-
 
 extension ViewController : SettingsViewControllerDelegate
 {
