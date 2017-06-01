@@ -23,6 +23,7 @@
 		9EDE88171E36B17C00C2F900 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDE88161E36B17C00C2F900 /* CoreLocation.framework */; };
 		DE1E34FB1EDE343600D1EEDC /* LocationLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E34FA1EDE343600D1EEDC /* LocationLookup.swift */; };
 		DE1E34FD1EDE3B6500D1EEDC /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E34FC1EDE3B6500D1EEDC /* HistoryTableViewController.swift */; };
+		DE1E34FF1EE0B08000D1EEDC /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E34FE1EE0B08000D1EEDC /* HistoryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		9EDE88161E36B17C00C2F900 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		DE1E34FA1EDE343600D1EEDC /* LocationLookup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationLookup.swift; sourceTree = "<group>"; };
 		DE1E34FC1EDE3B6500D1EEDC /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		DE1E34FE1EE0B08000D1EEDC /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				9ECC2D161E5F8CBC00A84935 /* GeoCalcButton.swift */,
 				9ECC2D171E5F8CBC00A84935 /* GeoCalcTextField.swift */,
 				9EDE87E71E36AC2C00C2F900 /* Main.storyboard */,
+				DE1E34FE1EE0B08000D1EEDC /* HistoryTableViewCell.swift */,
 				DE1E34FC1EDE3B6500D1EEDC /* HistoryTableViewController.swift */,
 				9EDE87EA1E36AC2C00C2F900 /* Assets.xcassets */,
 				9EDE87EC1E36AC2C00C2F900 /* LaunchScreen.storyboard */,
@@ -306,6 +309,7 @@
 				9EC2C62F1E4A690B009BC940 /* SettingsViewController.swift in Sources */,
 				9ECC2D1A1E5F8CBC00A84935 /* GeoCalcButton.swift in Sources */,
 				9ECC2D1B1E5F8CBC00A84935 /* GeoCalcTextField.swift in Sources */,
+				DE1E34FF1EE0B08000D1EEDC /* HistoryTableViewCell.swift in Sources */,
 				DE1E34FB1EDE343600D1EEDC /* LocationLookup.swift in Sources */,
 				9EDE87E41E36AC2C00C2F900 /* AppDelegate.swift in Sources */,
 			);

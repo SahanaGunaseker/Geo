@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeoCalculator/HistoryTableViewController.swift"
-            timestampString = "517974036.818185"
+            timestampString = "518042833.870936"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
             landmarkName = "HistoryTableViewController"
             landmarkType = "3">
          </BreakpointContent>

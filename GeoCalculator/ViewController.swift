@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegate, HistoryTableViewControllerDelegate {
 
     @IBOutlet weak var p1Lat: DecimalMinusTextField!
     @IBOutlet weak var p1Lng: DecimalMinusTextField!
@@ -21,10 +21,21 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var bearingLabel: UILabel!
     
+    func selectEntry(entry: LocationLookup){
+        print("hello")
+    }
     var distanceUnits : String = "Kilometers"
     var bearingUnits : String = "Degrees"
-    var entries : [LocationLookup] = []
-    
+    //var entries : [LocationLookup] = []
+    var entries : [LocationLookup] = [
+        
+        LocationLookup(origLat: 90.0, origLng: 0.0, destLat: -90.0, destLng: 0.0,
+                       
+                       timestamp: Date.distantPast),
+        
+        LocationLookup(origLat: -90.0, origLng: 0.0, destLat: 90.0, destLng: 0.0,
+                       
+                       timestamp: Date.distantFuture)]
     
     @IBOutlet weak var tableView: UITableView!
     //var tableViewData: [(sectionHeader: String, entries: [LocationLookup])]? {
@@ -36,7 +47,9 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     //}
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+       
         // Do any additional setup after loading the view, typically from a nib.
         self.view.backgroundColor = THEME_COLOR2
     }
@@ -134,15 +147,16 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "settingsSegue" {
-            if let dest = segue.destination.childViewControllers[0] as? SettingsViewController {
+          if let dest = segue.destination as? SettingsViewController {
                 dest.dUnits = self.distanceUnits
                 dest.bUnits = self.bearingUnits
                 dest.delegate = self
             }
         }
         if segue.identifier == "historySegue"{
-            if let hist = segue.destination.childViewControllers[0] as? HistoryTableViewController {
-           hist.historyDelegate = (self.entries as! HistoryTableViewControllerDelegate)
+            if let hist = segue.destination as? HistoryTableViewController {
+           hist.historyDelegate = self
+            hist.entries = self.entries
         }
     }
 }
